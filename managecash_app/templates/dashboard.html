@@ -1,0 +1,43 @@
+{% extends 'master/base.html' %}
+
+
+{% block title %}
+    dashboard
+{% endblock title %}
+
+
+{% block content %}
+<h3>Welcome to Dashboard {{ request.user.username }}</h3>
+
+<div class="row text-center my-4">
+  <div class="col-md-4">
+    <div class="card border-success">
+      <div class="card-body">
+        <h6 class="card-title">Total Income</h6>
+        <h4 class="text-success">{{ total_cash }}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card border-danger">
+      <div class="card-body">
+        <h6 class="card-title">Total Expense</h6>
+        <h4 class="text-danger">{{ total_expense }}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card border-primary">
+      <div class="card-body">
+        <h6 class="card-title">Balance</h6>
+        <h4>{{ balance }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="{% url 'addcash_view' %}" class="btn btn-success">+ Add Cash</a>
+<a href="{% url 'add_expense' %}" class="btn btn-danger">+ Add Expense</a>
+
+{% endblock content %}
+    
